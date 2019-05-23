@@ -1,24 +1,26 @@
-<header><br>
+<header>
+	<br>
 	<div class="row">
 		<div class="medium-3 columns">
 			<nav aria-label="You are here:" role="navigation">
 			  <ul class="breadcrumbs">
-			    <li style="font-color: black;"><%= link_to "Inicio", root_path %></li>
+			    <li style="font-family: 'Hind', sans-serif;font-color: black;"><%= link_to "Inicio", root_path %></li>
 			    <li><%= link_to "Mis recetas", about_index_path %></li>
-			    <li><%= link_to "Contáctame", reachout_index_path %></li>
+			    <li><%= link_to "Sobre mí", reachout_index_path %></li>
 			  </ul>
 			</nav>
 		</div>
 		<div class="medium-6 columns">
+			<center><%= image_tag "killy3.jpg",:alt=>"gerardo", :style=>"height:100px;width:90px; border-radius: 50%;", :class=>"avatar-image"%></center>
 			<h2 style="font-family: 'Libre Baskerville', serif;"><center>Gerardo David Bracho F.</center></h2>
 		</div>
-		<div class="medium-3 columns">
-			<h2></h2>
-		</div>
+		<div class="medium-3 columns"><h2></h2></div>
 	</div>
 	<div class="row">
 		<div class="medium-12 columns">
-			<h3 style="font-family: 'Libre Baskerville', serif;"><center>Chef Internacional</center></h3>
+			<h4 style="font-family: 'Libre Baskerville', serif;">
+				<center>Chef Internacional</center>
+			</h4>
 		</div>
 	</div>
 </header>
