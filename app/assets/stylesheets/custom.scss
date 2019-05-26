@@ -83,21 +83,167 @@ $login-box-inner-padding: 2.5rem;
 }
 
 
+h2, h4 {
+	font-family: 'Libre Baskerville', serif;	
+}
 
-$hero-height: 60vh;
+p {
+	font-family: 'Hind', sans-serif; 
+}
 
-.hero-section {
-  background: url('https://www.essexresort.com/i/SITE_170315_14300405_91EOU/content/CMS_10022017_111254293_QYZ63/BCD68D4F-C7C0-4B7F-A18738E141482E87.JPG') 50% no-repeat;
-  background-size: cover;
-  height: $hero-height;
-  text-align: right;
-  display: flex;
-  align-items: center;
-  justify-content: right;
 
-  .hero-section-text {
-    color: $white;
-    text-shadow: 1px 1px 2px $black;
-    background-color: rgba(255, 0, 0, 0.5);
+
+$timeline-color: $white;
+$timeline-transition: all 0.25s ease-in;
+$timeline-item-card-bg: $white;
+$timeline-item-font-color: $black;
+$timeline-item-card: false;
+$timeline-item-card-radius: $global-radius;
+
+%clearfix {
+  &::after,
+  &::before {
+    clear: both;
+    content: '';
+    display: block;
+    width: 100%;
   }
 }
+
+// Timeline
+.timeline {
+  margin: 30px auto;
+  padding: 0 10px;
+  position: relative;
+  transition: $timeline-transition;
+  width: 100%;
+
+  &::before {
+    background: $black;
+    content: '';
+    height: 100%;
+    left: 50%;
+    position: absolute;
+    top: 0;
+    width: 3px;
+  }
+
+  &::after {
+    clear: both;
+    content: '';
+    display: table;
+    width: 100%;
+  }
+
+  a {
+    color: $timeline-item-font-color;
+    font-weight: bold;
+    transition: $timeline-transition;
+
+    &:hover {
+      box-shadow: 0 1px 0px 0px $timeline-item-font-color;
+      transition: $timeline-transition;
+    }
+  }
+
+  .timeline-item {
+    margin-bottom: 50px;
+    position: relative;
+    @extend %clearfix;
+
+    .timeline-icon {
+      background: $timeline-color;
+      height: 50px;
+      left: 50%;
+      margin-left: -25px;
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      width: 50px;
+
+      img,
+      svg {
+        position: relative;
+        
+      }
+    }
+
+    .timeline-content {
+      padding: 20px;
+      text-align: right;
+      transition: $timeline-transition;
+      width: 45%;
+
+      @if $timeline-item-card == true {
+        background: $black;
+        border-radius: $timeline-item-card-radius;
+
+        p {
+          color: $black;
+        }
+      } @else {
+        background: transparent;
+
+        p {
+          color: $timeline-item-font-color;
+        }
+      }
+
+      p {
+        font-size: 16px;
+        line-height: 1.4;
+        margin-bottom: 0;
+      }
+
+      .timeline-content-date {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 0;
+      }
+
+      .timeline-content-month {
+        font-size: rem-calc(14);
+        text-transform: uppercase;
+        font-weight: 400;
+      }
+
+      &.right {
+        float: right;
+        text-align: left;
+      }
+    }
+  }
+}
+
+@include breakpoint(small only) {
+  .timeline {
+    margin: 30px;
+    padding: 0;
+    width: 90%;
+
+    &::before {
+      left: 0;
+    }
+
+    .timeline-item {
+      .timeline-content {
+        float: right;
+        text-align: left;
+        width: 90%;
+
+        &::before,
+        &.right::before {
+          border-left: 0;
+          border-right: 7px solid $timeline-color;
+          left: 10%;
+          margin-left: -6px;
+        }
+      }
+
+      .timeline-icon {
+        left: 0;
+      }
+    }
+  }
+}
+
