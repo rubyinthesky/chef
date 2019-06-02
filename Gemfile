@@ -30,7 +30,7 @@ gem 'jbuilder', '~> 2.5'
 #gem 'jquery-turbolinks' 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
-gem 'foundation-rails'
+gem 'bootstrap', '~> 4.0.0'
 gem 'autoprefixer-rails'
 gem 'jquery-rails'
 # Use Capistrano for deployment

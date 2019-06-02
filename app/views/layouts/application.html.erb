@@ -8,16 +8,20 @@
 
     <%= stylesheet_link_tag    "application" %>
     
-    <link href="https://fonts.googleapis.com/css?family=Hind|Libre+Baskerville&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Hind|Libre+Baskerville&display=swap" rel="stylesheet">
+    <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
     <%= csrf_meta_tags %>
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target=".navbar" data-offset="50">
 
-    <%= render 'layouts/header' %> 
     <%= yield %>
 
-    <%= render 'layouts/footer' %>
     <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "map" %>
+    <%= javascript_include_tag "smooth-scroll" %>
+    <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+    <%= javascript_include_tag "image-effect" %>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDFZjOV0KA68G2YAh-rn7I3qKqCQEh_Ja0&callback=myMap"></script>
   </body>
 </html>

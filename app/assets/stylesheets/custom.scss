@@ -1,249 +1,99 @@
 
-@import 'foundation_and_overrides';
-$login-box-radius: $global-radius;
-$login-box-bg: $white;
-$login-box-shadow: 0 2px 4px rgba($black, 0.4);
-$login-box-inner-padding: 2.5rem;
 
+body{
+	 font-family: 'Hind', sans-serif;
+}
+.nav-item{
+	padding-right: 12px;
+	padding-left: 12px;
+}
+.flag{
+	max-height: 20px;
+	max-width: 20px;
+	margin-top: 10px;
+}
+.nav-link.active{
+	background-color: lightgrey !important;
+}
 
-.login-box {
-  box-shadow: $login-box-shadow;
-  border-radius: $login-box-radius;
-  overflow: hidden;
+.reserve-container{
+	position: relative;
+}
+.card-body{
+	-webkit-transition: all 1s ease; /* Safari and Chrome */
+  	-moz-transition: all 1s ease; /* Firefox */
+  	-o-transition: all 1s ease; /* IE 9 */
+  	-ms-transition: all 1s ease; /* Opera */
+  	transition: all 1s ease;
+}
+.card-body:hover{
+	-webkit-transform: scale(1.05);
+	-moz-transform: scale(1.05);
+	-o-transform: scale(1.05);
+	-ms-transform: scale(1.05);
+	transform: scale(1.05);
+}
 
-  .or {
-    @include absolute-center;
-    @include badge;
-    font-size: 1.275rem;
-    background: $medium-gray;
-    box-shadow: $login-box-shadow;
+.reserve-text{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
-    @include breakpoint(small only) {
-      top: 85%;
-    }
+.image-reserve{
+	opacity: 0.4;
+	max-height: 750px;
+}
+
+.carousel-caption{
+	top: 40%;
+}
+
+.img-slider{
+	min-height: 320px;
+}
+
+.navMenu{
+	padding-top: 75px;
+	padding-bottom: 20px;
+}
+
+.card-img-top{
+	height: 200px;
+}
+
+.map{
+	height: 320px;
+}
+
+@media screen and (max-width : 1920px){
+  .only-mobile{
+  visibility:hidden;
   }
 }
 
-.login-box-title {
-  font-weight: 300;
-  font-size: 1.875rem;
-  margin-bottom: 1.25rem;
+@media screen and (max-width : 506px){
+ 
+ .only-mobile{
+  visibility:visible;
+  }
 }
 
-.login-box-form-section,
-.login-box-social-section-inner {
-  padding: $login-box-inner-padding;
+.footer{
+	margin-bottom: 30px;
+	margin-top: 30px;
+	padding-top: 20px;
+}
+.social-icon{
+	font-size:28; 
 }
 
-.login-box-input {
-  margin-bottom: 1.25rem;
-  height: 2rem;
-  border: 0;
-  padding-left: 0;
-  box-shadow: none;
-  border-bottom: 1px solid $primary-color;
-  font-weight: 400;
+footer{
+	position: fixed;
+	bottom: 0px;
+	padding-top: 20px;
 }
-
-.login-box-input:focus {
-  color: $primary-color;
-  transition: 0.2s ease-in-out;
-  box-shadow: none;
-  border: 0;
-  border-bottom: 2px solid $primary-color;
-}
-
-.login-box-submit-button {
-  @include button(true, $primary-color, auto, auto, solid);
-  border-radius: $global-radius;
-  text-transform: uppercase;
-  margin-bottom: 0;
-}
-
-.login-box-submit-button:hover,
-.login-box-submit-button:focus {
-  box-shadow: $login-box-shadow;
-}
-
-.login-box-submit-button:active {
-  box-shadow: 0 1px 2px rgba($black, 0.4);
-}
-
-[class*="login-box-social-button-"]:hover,
-[class*="login-box-social-button-"]:focus {
-  box-shadow: $login-box-shadow;
-}
-
-.login-box-social-headline {
-  display: block;
-  margin-bottom: rem-calc(40);
-  font-size: 1.875rem;
-  color: $white;
-  text-align: center;
-}
-
-
-h2, h4 {
-	font-family: 'Libre Baskerville', serif;	
-}
-
 p {
 	font-family: 'Hind', sans-serif; 
 }
-
-
-
-$timeline-color: $white;
-$timeline-transition: all 0.25s ease-in;
-$timeline-item-card-bg: $white;
-$timeline-item-font-color: $black;
-$timeline-item-card: false;
-$timeline-item-card-radius: $global-radius;
-
-%clearfix {
-  &::after,
-  &::before {
-    clear: both;
-    content: '';
-    display: block;
-    width: 100%;
-  }
-}
-
-// Timeline
-.timeline {
-  margin: 30px auto;
-  padding: 0 10px;
-  position: relative;
-  transition: $timeline-transition;
-  width: 100%;
-
-  &::before {
-    background: $black;
-    content: '';
-    height: 100%;
-    left: 50%;
-    position: absolute;
-    top: 0;
-    width: 3px;
-  }
-
-  &::after {
-    clear: both;
-    content: '';
-    display: table;
-    width: 100%;
-  }
-
-  a {
-    color: $timeline-item-font-color;
-    font-weight: bold;
-    transition: $timeline-transition;
-
-    &:hover {
-      box-shadow: 0 1px 0px 0px $timeline-item-font-color;
-      transition: $timeline-transition;
-    }
-  }
-
-  .timeline-item {
-    margin-bottom: 50px;
-    position: relative;
-    @extend %clearfix;
-
-    .timeline-icon {
-      background: $timeline-color;
-      height: 50px;
-      left: 50%;
-      margin-left: -25px;
-      overflow: hidden;
-      position: absolute;
-      top: 0;
-      width: 50px;
-
-      img,
-      svg {
-        position: relative;
-        
-      }
-    }
-
-    .timeline-content {
-      padding: 20px;
-      text-align: right;
-      transition: $timeline-transition;
-      width: 45%;
-
-      @if $timeline-item-card == true {
-        background: $black;
-        border-radius: $timeline-item-card-radius;
-
-        p {
-          color: $black;
-        }
-      } @else {
-        background: transparent;
-
-        p {
-          color: $timeline-item-font-color;
-        }
-      }
-
-      p {
-        font-size: 16px;
-        line-height: 1.4;
-        margin-bottom: 0;
-      }
-
-      .timeline-content-date {
-        font-size: 16px;
-        font-weight: bold;
-        margin-bottom: 0;
-      }
-
-      .timeline-content-month {
-        font-size: rem-calc(14);
-        text-transform: uppercase;
-        font-weight: 400;
-      }
-
-      &.right {
-        float: right;
-        text-align: left;
-      }
-    }
-  }
-}
-
-@include breakpoint(small only) {
-  .timeline {
-    margin: 30px;
-    padding: 0;
-    width: 90%;
-
-    &::before {
-      left: 0;
-    }
-
-    .timeline-item {
-      .timeline-content {
-        float: right;
-        text-align: left;
-        width: 90%;
-
-        &::before,
-        &.right::before {
-          border-left: 0;
-          border-right: 7px solid $timeline-color;
-          left: 10%;
-          margin-left: -6px;
-        }
-      }
-
-      .timeline-icon {
-        left: 0;
-      }
-    }
-  }
-}
-
